@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.transition.Fade;
 
 import android.app.ActivityOptions;
@@ -13,14 +14,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.transition.Explode;
 import android.transition.Transition;
+import android.util.Pair;
 import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ImageView robot;
+    private ImageView square;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // reference the views
+        robot = findViewById(R.id.android_logo);
+        square = findViewById(R.id.square);
     }
 
     // relauching the activity with transitions
@@ -54,6 +64,23 @@ public class MainActivity extends AppCompatActivity {
         ObjectAnimator rotation90 = ObjectAnimator.ofFloat(view,"rotation",90f,180f);
         rotation90.setDuration(2000);
         rotation90.start();
+
+    }
+
+    public void swapMeWithSquare(View view) {
+
+        Intent intent = new Intent(this,SecondActivity.class);
+
+        Pair<View,String> robotPair = new Pair<>(robot,"robot_motion");
+        Pair<View,String> squarePair = new Pair<>(square,"square_motion");
+
+        ActivityOptions options = ActivityOptions.
+                makeSceneTransitionAnimation(this,
+                                                    robotPair,
+                                                    squarePair
+                                            );
+
+        startActivity(intent,options.toBundle());
 
     }
 }
