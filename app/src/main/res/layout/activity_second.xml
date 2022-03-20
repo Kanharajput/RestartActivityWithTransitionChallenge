@@ -35,7 +35,6 @@
             android:layout_height="100dp"
             android:layout_columnWeight="1"
             android:src="@drawable/ic_circle"
-            android:onClick="relaunchMainActivity"
             app:tint="@android:color/holo_red_dark" />
 
         <ImageView
@@ -43,29 +42,26 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_columnWeight="1"
-            android:onClick="relauchMainActivityFade"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_rectangle" />
-
-        <ImageView
-            android:id="@+id/android_logo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:onClick="swapMeWithSquare"
-            android:transitionName="robot_motion"
-            android:src="@drawable/ic_android_logo" />
 
         <ImageView
             android:id="@+id/square"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_columnWeight="1"
-            android:onClick="rotateMe"
             android:src="@drawable/ic_square"
             android:transitionName="square_motion"
             app:tint="#f2d810" />
+
+        <ImageView
+            android:id="@+id/android_logo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:src="@drawable/ic_android_logo"
+            android:transitionName="robot_motion" />
 
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
